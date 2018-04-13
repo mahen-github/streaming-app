@@ -1,13 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.icc.poc</groupId>
 	<artifactId>streaming-app</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>streaming-app</name>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<specs2.version>3.6.1</specs2.version>
@@ -15,13 +13,7 @@
 		<spark.version>2.2.1</spark.version>
 		<kafka-version>0-10</kafka-version>
 	</properties>
-
 	<dependencies>
-		<!-- <dependency> -->
-		<!-- <groupId>org.scala-lang</groupId> -->
-		<!-- <artifactId>scala-library</artifactId> -->
-		<!-- <version>2.11.7</version> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka_${scala.compat.version}</artifactId>
@@ -34,7 +26,6 @@
 			<version>0.10.2.0</version>
 			<scope>compile</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_${scala.compat.version}</artifactId>
@@ -59,7 +50,6 @@
 			<version>1.1.2</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -144,5 +134,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

@@ -8,7 +8,7 @@ class HDFSWriter(val path: String) {
     rdd.saveAsTextFile(path)
     rdd
   }
-  
+
   def writeString(rdd:RDD[String]){
     rdd.saveAsTextFile(path)
   }
