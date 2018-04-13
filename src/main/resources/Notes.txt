@@ -1,0 +1,5 @@
+kafka-topics --zookeeper node1:2181/kafka --delete --topic edhTopic
+
+kafka-topics --zookeeper node1:2181/kafka  --create --topic edhTopic --partitions 1 --replication-factor 3
+
+kafka-console-consumer --zookeeper node1:2181/kafka --topic edhTopic --from-beginning
