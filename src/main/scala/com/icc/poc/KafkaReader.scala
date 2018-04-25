@@ -21,6 +21,7 @@ class KafkaReader(val ssc: StreamingContext) {
       "group.id" -> GROUP_ID,
       "fetch.message.max.bytes" -> KAFKA_MAX_FETCH_BYTES,
       "key.deserializer" -> classOf[org.apache.kafka.common.serialization.StringDeserializer],
+//      "value.deserializer" -> classOf[com.icc.poc.DataDeserializer])
       "value.deserializer" -> classOf[org.apache.kafka.common.serialization.StringDeserializer])
     val topics = KAFKA_READ_TOPICS
     val offsets = Map(new TopicPartition("topic3", 0) -> 2L)
