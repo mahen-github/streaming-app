@@ -11,7 +11,7 @@ class KafkaProducerApp {
 
   def write() {
     val props: Map[String, Any] = Map(
-      "bootstrap.servers" -> "node1:9092",
+      "bootstrap.servers" -> "node1:9092,node2:9092, node3:9092",
       "acks" -> "all",
       "batch.size" -> 16384,
       "linger.ms" -> 100,

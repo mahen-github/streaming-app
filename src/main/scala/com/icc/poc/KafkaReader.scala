@@ -24,7 +24,7 @@ class KafkaReader(val ssc: StreamingContext) {
 //      "value.deserializer" -> classOf[com.icc.poc.DataDeserializer])
       "value.deserializer" -> classOf[org.apache.kafka.common.serialization.StringDeserializer])
     val topics = KAFKA_READ_TOPICS
-    val offsets = Map(new TopicPartition("topic3", 0) -> 2L)
+//    val offsets = Map(new TopicPartition("topic3", 0) -> 2L)
     KafkaUtils.createDirectStream[String, String](ssc, LocationStrategies.PreferConsistent, ConsumerStrategies.Subscribe[String, String](topics, kafkaParams))
   }
 }
