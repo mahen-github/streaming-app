@@ -3,9 +3,8 @@ package com.icc.poc
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.kafka010.ConsumerStrategies
-import org.apache.spark.streaming.kafka010.LocationStrategies
 import org.apache.spark.streaming.kafka010.KafkaUtils
-import org.apache.kafka.common.TopicPartition
+import org.apache.spark.streaming.kafka010.LocationStrategies
 
 class KafkaReader(val ssc: StreamingContext) {
   var timestamp: Long = _

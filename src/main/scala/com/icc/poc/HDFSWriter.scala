@@ -1,7 +1,7 @@
 package com.icc.poc
 
-import org.apache.spark.rdd.RDD
 import org.apache.kafka.clients.consumer.ConsumerRecord
+import org.apache.spark.rdd.RDD
 
 class HDFSWriter(val path: String) {
   def writeConsumerRecord(rdd: RDD[ConsumerRecord[String, String]]): RDD[ConsumerRecord[String, String]] = {
