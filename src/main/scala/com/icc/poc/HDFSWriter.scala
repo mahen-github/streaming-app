@@ -9,8 +9,9 @@ class HDFSWriter(val path: String) {
     rdd
   }
 
-  def writeString(rdd:RDD[String]){
+  def writeString(rdd:RDD[String]): RDD[String]={
     rdd.saveAsTextFile(path)
+    rdd
   }
 }
 
@@ -18,4 +19,5 @@ object HDFSWriter {
   def configure(path: String): HDFSWriter = {
     new HDFSWriter(path)
   }
+  //TBI: get Host FS Conf
 }

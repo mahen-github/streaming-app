@@ -8,8 +8,8 @@ import org.apache.spark.streaming.Seconds
 import org.apache.spark.streaming.StreamingContext
 
 case class trans(customer_id: Long, acct_num: Long, customer_profile: String,
-    trans_num: Long, trans_date: String, trans_time: String, unix_time: Long, category: String, amt: Double, is_fraud: Short) 
-    
+  trans_num: Long, trans_date: String, trans_time: String, unix_time: Long, category: String, amt: Double, is_fraud: Short)
+
 object StreamingApplication extends App {
   val sparkConf = new SparkConf()
   val sparkContext = new SparkContext(sparkConf)
@@ -33,14 +33,14 @@ object StreamingApplication extends App {
     reducedData.collect().foreach(println)
     println("=================================== ")
     kafkaWriter.write(reducedData)
+
+    //Write the original data into hdfs
+    if (!rdd.isEmpty()) {
+      val hdfsWriter = HDFSWriter.configure(path + "/actualData/" + time.milliseconds)
+      hdfsWriter.writeString(rdd)
+    }
   })
   
-  //  dStream.foreachRDD((rdd, time) => {
-  //    if (!rdd.isEmpty()) {
-  //      val hdfsWriter = HDFSWriter.configure(path + "/" + time.milliseconds)
-  //      hdfsWriter.writeString(rdd.map(_.value().toString()))
-  //    }
-  //  })
   ssc.start()
   ssc.awaitTermination()
 }
