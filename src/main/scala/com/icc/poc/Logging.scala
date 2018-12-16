@@ -8,4 +8,6 @@ trait Logging {
   // to print some logback info for debug:
   // import ch.qos.logback.classic.LoggerContext
   // StatusPrinter.print((LoggerFactory.getILoggerFactory).asInstanceOf[LoggerContext])
+
+
 }

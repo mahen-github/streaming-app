@@ -9,9 +9,21 @@ import java.util.Properties
 
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
-import org.apache.kafka.common.serialization.LongSerializer
+import org.apache.kafka.common.serialization.{LongSerializer, StringSerializer}
 
-class KafkaProducerApp {
+import scala.annotation.meta.beanSetter
+
+class KafkaProducerApp(val a:String) {
+
+  var producer:KafkaProducer[String, Data] = _
+
+
+  def this(){
+    this("dada")
+  }
+  def getProducerApp(): Unit ={
+
+  }
 
   def write() {
     val producer = new KafkaProducer[String, Data](KafkaProducerApp.kafkaParams)
@@ -36,7 +48,7 @@ object KafkaProducerApp extends App {
     "batch.size" -> Constants.BATCH_SIZE,
     "linger.ms" -> Constants.LINGER_MS,
     "buffer.memory" -> Constants.BUFFER_MEMORY,
-    "key.serializer" -> classOf[LongSerializer],
+    "key.serializer" -> classOf[StringSerializer],
     "value.serializer" -> classOf[DataSerializer])
   val kafkaParams = new Properties()
   props.map { f => kafkaParams.put(f._1, f._2.toString()) }
